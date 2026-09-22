@@ -14,8 +14,10 @@
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
       model-viewer {
+        flex: 1;
         width: 100%;
-        height: 100vh;
+        max-height: 85dvh;
+        min-height: 0;
         --poster-color: transparent;
         background: linear-gradient(
           135deg,
@@ -25,10 +27,20 @@
         );
       }
       .buttons {
-        position: fixed;
-        bottom: calc(80px + env(safe-area-inset-bottom));
-        left: 20px;
-        z-index: 10;
+        flex-shrink: 0;
+        width: 100%;
+        padding: 10px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          #e4e4ff 0%,
+          #cfdcff 50%,
+          #96c5ff 100%
+        );
+        box-sizing: border-box;
       }
       .buttons button {
         margin: 5px;
@@ -122,7 +134,7 @@
     </div>
     <div id="main" style="display: none">
       <model-viewer
-        src="TwinTowerFinal-optimized.glb"
+        src="TwinTowerFinalFinal-optimized.glb"
         camera-controls
         min-field-of-view="0.1deg"
         interaction-prompt="none"
@@ -179,7 +191,7 @@
       function showFloor14() {
         const mv = document.querySelector("model-viewer");
         mv.cameraOrbit = "90deg 90deg 2m";
-        mv.cameraTarget = "-31.1m 21.7m -9.5m";
+        mv.cameraTarget = "-31.15m 21.7m -9.5m";
         document.getElementById("arrowButtons").style.display = "block";
       }
 
@@ -195,9 +207,9 @@
       }
 
       function rotateUp() {
-        document.querySelector("model-viewer").cameraOrbit = "90deg 105deg 2m";
+        document.querySelector("model-viewer").cameraOrbit = "90deg 110deg 2m";
         document.querySelector("model-viewer").cameraTarget =
-          "-31.1m 36m -9.5m";
+          "-30.5m 42m -9.5m";
       }
 
       function rotateDown() {
